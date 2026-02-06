@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import Footer from './Footer'
 import Header from './Header'
 import TodoApp from './TodoApp'
@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
     <Header title = "My to do app"/>
-    <TodoApp todos = {todos}/>
+    <TodoApp  todos />
     </div>
   )
 }
