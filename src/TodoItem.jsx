@@ -13,14 +13,24 @@ const TodoItem = ( { todo, onDelete, onToggle, onEdit } ) => {
              />
              {isEditing ? (<input
                 value = {editText}
-                onChange = {(e)=> setEditText(e.target.value)}/>
+                onChange = {(e)=> setEditText(e.target.value)} onKeyDown={
+                    (e)=> {
+                    if(e.key === "Enter"){
+                     onEdit(todo.id, editText)
+                     setIsEditing(false)
+                    }
+                     }}/>
              ):<span style={{textDecoration: todo.completed ? "line-through" : "none"}}>{todo.text}</span> }
             
-            {isEditing? (<button onClick={()=> {
+            {isEditing? (<div><button onClick={()=> {
                 onEdit(todo.id, editText)
                 setIsEditing(false)
             }
-            } >Save</button>): <button onClick={()=> {
+            } >Save</button> 
+            <button onClick={() => setIsEditing(false)}>Cancel</button>
+            </div>
+
+        ): <button onClick={()=> {
                 setIsEditing(true)
             }}>🖍</button>}
             { console.log(todo)};
