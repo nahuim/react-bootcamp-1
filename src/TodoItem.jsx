@@ -1,6 +1,10 @@
-const TodoItem = ( {text} ) => {
+const TodoItem = ( { todo, onDelete} ) => {
     return ( 
-        <li>{text}</li>
+        <li>
+            {todo.text}
+            <button
+            onClick={() => onDelete(todo.id)}>❌</button>
+        </li>
      );
 }
  
