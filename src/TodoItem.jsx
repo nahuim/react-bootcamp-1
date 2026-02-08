@@ -1,7 +1,13 @@
-const TodoItem = ( { todo, onDelete} ) => {
+const TodoItem = ( { todo, onDelete, onToggle } ) => {
     return ( 
         <li>
-            {todo.text}
+            <input 
+            type="checkbox"
+            checked = {todo.completed}
+            onChange={()=> onToggle(todo.id)}
+             />
+            <span style={{textDecoration: todo.completed ? "line-through" : "none"}}>{todo.text}</span>
+            
             <button
             onClick={() => onDelete(todo.id)}>❌</button>
         </li>

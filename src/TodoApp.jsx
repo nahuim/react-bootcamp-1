@@ -14,9 +14,15 @@ function TodoApp() {
 
         if(!text.trim()) return; 
 
-        setTodos([...todos,{id: Date.now(), text }]);
+        setTodos([...todos,{id: Date.now(), text , completed: false}]);
 
         setText("");
+    }
+
+    function toggleToDo (id){
+      setTodos(todos.map(
+        todo=> todo.id === id ? {...todo, completed: !todo.completed}: todo
+      ));
     }
   return (
     <div>
@@ -33,7 +39,7 @@ function TodoApp() {
     </form>
 
 
-    <TodoList todos = {todos} onDelete={handleDelete}/>
+    <TodoList todos = {todos} onDelete={handleDelete} onToggle = {toggleToDo} />
     </div>
   );
 }
