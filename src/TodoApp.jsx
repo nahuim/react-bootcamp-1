@@ -24,6 +24,13 @@ function TodoApp() {
         todo=> todo.id === id ? {...todo, completed: !todo.completed}: todo
       ));
     }
+function editTodo(id, newText) {
+  setTodos(
+    todos.map(todo =>
+      todo.id === id ? { ...todo, text: newText } : todo
+    )
+  );
+}
   return (
     <div>
    <form
@@ -39,7 +46,7 @@ function TodoApp() {
     </form>
 
 
-    <TodoList todos = {todos} onDelete={handleDelete} onToggle = {toggleToDo} />
+    <TodoList todos = {todos} onDelete={handleDelete} onToggle = {toggleToDo} onEdit = {editTodo} />
     </div>
   );
 }

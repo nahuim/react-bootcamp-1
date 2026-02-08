@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 
-const TodoList = ({todos , onDelete, onToggle }) => {
+const TodoList = ({todos , onDelete, onToggle, onEdit }) => {
     return (  
         <div>
         { todos.length === 0 ? (<p>No To-Dos yet...</p>) :(
@@ -11,6 +11,7 @@ const TodoList = ({todos , onDelete, onToggle }) => {
                 todo = {todo}
                 onDelete={onDelete}
                onToggle={onToggle}
+                onEdit={onEdit}
 
                 />
 
@@ -24,4 +25,3 @@ const TodoList = ({todos , onDelete, onToggle }) => {
 }
  
 export default TodoList;
-""
