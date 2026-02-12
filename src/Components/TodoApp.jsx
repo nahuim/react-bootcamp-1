@@ -19,6 +19,9 @@ function TodoApp() {
         setText("");
     }
 
+    function addToDO(){
+      
+    }
     function toggleToDo (id){
       setTodos(todos.map(
         todo=> todo.id === id ? {...todo, completed: !todo.completed}: todo
@@ -32,21 +35,23 @@ function editTodo(id, newText) {
   );
 }
   return (
-    <div>
-   <form
+    <div className='min-h-screen bg-gray-100 flex justify-center items-center'>
+      <div className='bg-white p-6 rounded-xl shadow-lg w-full max-w-md'>
+     <form
   onSubmit={ handleSubmit }
 >
-        <input 
+        <input className='border p-2 rounded w-full mb-2'
         value = {text}
         onChange={(e) => setText(e.target.value)}
         placeholder='To do...'
         />
-        <button> Add</button>
+        <button className='bg-blue-500 text-white px-4 py-2 rounded w-full'> Add</button>
 
     </form>
 
 
     <TodoList todos = {todos} onDelete={handleDelete} onToggle = {toggleToDo} onEdit = {editTodo} />
+    </div>
     </div>
   );
 }

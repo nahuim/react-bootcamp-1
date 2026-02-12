@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Footer from './Footer'
-import Header from './Header'
-import TodoApp from './TodoApp'
+import Footer from './Components/Footer'
+import Header from './Components/Header'
+import TodoApp from './Components/TodoApp'
 
 const todos = [
   {id: 1, text: "learn react"},
